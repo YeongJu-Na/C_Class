@@ -52,7 +52,6 @@ switch문이 ifelse에 비해 장점이 될 수 있는 부분 : 많은 elseif중
   * 2차원포인터 ⇒ int**a  / 매개변수로 2차원 배열 넘길때 int (*ptr)[4]
 
 ### C언어 4강
-
 * 포인터
     * void타입 - 정해지지않은 주소 ,데이터타입 없으므로 +1연산 시 그대로 +1, 포인터 연산, 메모리 참조와 관련된 일에 활용x
     * 주소 블록 그림=> 메모리 맵(memory map)
@@ -105,3 +104,20 @@ switch문이 ifelse에 비해 장점이 될 수 있는 부분 : 많은 elseif중
 
 * sizeof()는 함수아니고 매크로-> 매개변수로 배열을 넣는 것은 옳지 않다! ==> 선언된 곳에서는 작동할수도 있지만 100프로의 답(프로그램의 안정성)을 보장할수 없다
 * const: 메모리 확보 영역이 조금 다름, 상수(변경불가), const int*p 
+
+### C언어 5강
+* ASCII - 1Byte= 8Bit로 255까지 표현 가능하나 msb는 확장형?으로 실제론 7비트만 사용
+  * 4칸(32개단위)으로 나누는게 보기편하고 첫번째라인은 제어문자, 3번째와 4번째는 대소문자의 비교 가능
+
+* sizeof: 매크로 함수(macro function): 컴파일러가 컴파일당시에 실행 ⇒ 배열을 인수로 받는 함수를 만든 경우, sizeof(arr)는 주소값의 크기를 반환 → 즉, 제대로 동작x
+
+* C 표준함수
+  * 입출력: 파일, 콘솔(키보드/모니터), 소켓 입출력(tcp/ip소켓이라고 함)
+    * 스트림: 대기 문자열/buffer 
+    * fgets(char*str, sizeof(str),stdin);	//stdin- 스트림이지만 이 함수는 파일포인터로
+    * puts(), fputs등
+  * 문자열 처리 함수(<string.h>) - strlen, strcpy, strcat, strcmp(string끼리는 비교==로 못함)
+    * strcmp결과: 양수이면 str1(1st인자)가 더 큰 경우
+  * 문자열 변환함수(atoi):<stdlib.h>
+    *  int atoi(char *ptr)(Ascii To Integer), long atol(char* ptr), double도 있음
+  * 부분문자열: 인덱스 3부터보려면 str+3하면됨! ⇒ 포인터를 인수로
