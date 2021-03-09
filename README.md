@@ -103,7 +103,8 @@ switch문이 ifelse에 비해 장점이 될 수 있는 부분 : 많은 elseif중
   * 부분문자열: 인덱스 3부터보려면 str+3하면됨! ⇒ 포인터를 인수로
 
 ### C언어 6강
-* 파일 입출력: fopen, fclose, feof, fseek, fgets(1줄 단위로 받아옴), fscanf(scanf처럼받아옴), fprintf(파일로 해당 내용 넣음)
+* 파일 입출력: fopen, fclose/fcloseall, feof, fseek, fgets(1줄 단위로 받아옴), fscanf(scanf처럼받아옴), fprintf(파일로 해당 내용 넣음)
+    * 대부분 매개변수로 파일포인터 필요
     * 실무에서는 fscanf보다는 주로 fgets사용 (파일 내용 제각각일수 있어서)
 * procedure: 절차 함수, 모듈
 * 메모리 관리와 동적 할당
