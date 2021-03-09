@@ -94,10 +94,24 @@ switch문이 ifelse에 비해 장점이 될 수 있는 부분 : 많은 elseif중
 * C 표준함수
   * 입출력: 파일, 콘솔(키보드/모니터), 소켓 입출력(tcp/ip소켓이라고 함)
     * 스트림: 대기 문자열/buffer 
-    * fgets(char*str, sizeof(str),stdin);	//stdin- 스트림이지만 이 함수는 파일포인터로
+    * fgets(char*str, sizeof(str),stdin);	//stdin자리는 파일포인터, stdin/stdout은 스트림,특수한(?)파일포인터
     * puts(), fputs등
   * 문자열 처리 함수(<string.h>) - strlen, strcpy, strcat, strcmp(string끼리는 비교==로 못함)
     * strcmp결과: 양수이면 str1(1st인자)가 더 큰 경우
   * 문자열 변환함수(atoi):<stdlib.h>
     *  int atoi(char *ptr)(Ascii To Integer), long atol(char* ptr), double도 있음
   * 부분문자열: 인덱스 3부터보려면 str+3하면됨! ⇒ 포인터를 인수로
+
+### C언어 6강
+* 파일 입출력: fopen, fclose, feof, fseek, fgets(1줄 단위로 받아옴), fscanf(scanf처럼받아옴), fprintf(파일로 해당 내용 넣음)
+    * 실무에서는 fscanf보다는 주로 fgets사용 (파일 내용 제각각일수 있어서)
+* procedure: 절차 함수, 모듈
+* 메모리 관리와 동적 할당
+  * void* malloc(size) (<malloc.h>): 런 타임에 메모리 공간의 크기를 결정지어 할당(힙영역에) 
+    * memory allocation: 바이트단위로 증가시켜줌
+    * int *i = (int*) malloc(sizeof(int));	//cast연산을 통해 void* → int *
+  * falloc, valloc 등비슷한 기능의 함수들 있음
+* #define으로 시작하는 전처리기 지시자
+    *  #define PI 3.1415 //매크로 PI, 변수아닌 기호, 이를 3.1415(대체 리스트)로 대체
+* 모듈화 프로그래밍
+    * 헤더파일 중복 포함 시 문제 → 조건부 컴파일로 문제 해결 가능 : #ifdef ~~
