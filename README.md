@@ -111,8 +111,10 @@ switch문이 ifelse에 비해 장점이 될 수 있는 부분 : 많은 elseif중
   * void* malloc(size) (<malloc.h>): 런 타임에 메모리 공간의 크기를 결정지어 할당(힙영역에) 
     * memory allocation: 바이트단위로 증가시켜줌
     * int *i = (int*) malloc(sizeof(int));	//cast연산을 통해 void* → int *
+    * 사용 후 void free(void*)--> 메모리공간 놓아줘야함
   * falloc, valloc 등비슷한 기능의 함수들 있음
 * #define으로 시작하는 전처리기 지시자
     *  #define PI 3.1415 //매크로 PI, 변수아닌 기호, 이를 3.1415(대체 리스트)로 대체
 * 모듈화 프로그래밍
+    * 파일의 분할: 다른 파일의 변수 사용 extern
     * 헤더파일 중복 포함 시 문제 → 조건부 컴파일로 문제 해결 가능 : #ifdef ~~
